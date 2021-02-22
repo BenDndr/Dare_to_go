@@ -10,10 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_131356) do
+ActiveRecord::Schema.define(version: 2021_02_22_144851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
+    t.integer "place"
+    t.text "content"
+    t.integer "xp"
+    t.integer "delay"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "difficulty"
+  end
+
+  create_table "dares", force: :cascade do |t|
+    t.integer "progress"
+    t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_dares_on_challenge_id"
+    t.index ["user_id"], name: "index_dares_on_user_id"
+  end
+
+  create_table "journeys", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.boolean "public"
+    t.integer "challenge_rating"
+    t.text "challenge_review"
+    t.bigint "user_id", null: false
+    t.bigint "dare_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dare_id"], name: "index_journeys_on_dare_id"
+    t.index ["user_id"], name: "index_journeys_on_user_id"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "rank"
+    t.integer "xp_requirement"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_messages_on_challenge_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +76,18 @@ ActiveRecord::Schema.define(version: 2021_02_22_131356) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.date "birth_date"
+    t.text "presentation"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dares", "challenges"
+  add_foreign_key "dares", "users"
+  add_foreign_key "journeys", "dares"
+  add_foreign_key "journeys", "users"
+  add_foreign_key "messages", "challenges"
+  add_foreign_key "messages", "users"
 end
