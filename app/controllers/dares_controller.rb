@@ -1,12 +1,13 @@
 class DaresController < ApplicationController
   before_action :set_dare, only: [:show, :accept, :refuse]
-  def show
 
+  def show
     # authorize @dare
     @challenge = Challenge.find(@dare.challenge.id)
     # @message = Message.new
     # @messages = Message.where(dare_id: @dare.id)
     @deadline = @dare.created_at + @challenge.delay*86400
+    @chatroom = Chatroom.find(1)
   end
 
   def accept

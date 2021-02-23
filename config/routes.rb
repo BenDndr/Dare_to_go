@@ -8,7 +8,8 @@ Rails.application.routes.draw do
         patch :accept
         patch :refuse
       end
-      resources :messages, only: [:index, :new, :create, :edit, :update]
+      # resources :chatrooms, only: :show
+      resources :messages, only: :create
       resources :journeys, only: [:index, :new, :create, :edit, :update]
     end
   end
