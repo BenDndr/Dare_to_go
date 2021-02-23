@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="">
+    <h1 class="text-center">Your dare !!</h2>
+    <h3>Review your tasks :</h3>
+    <p><%= @challenge.content  %></p>
+    <p>This dare will grant you : <%= @challenge.xp %></p>
+    <% if @dare.pending? %>
+      <p>The Challenge "<%= @challenge.name %>" is on his way, make your best to complet it, it's important.</p>
+    <div>
+    </div >
+      <% if @dare.user_id == current_user.id  %>
+        <div class="link-accept-refuse d-flex flex-column dare-info p-1">
+          <div class="inline">
+            <div class="accept-refuse p-1 w-100">
+              <%= link_to "Accept",
+                            accept_challenge_dare_path(@challenge, @dare),
+                            method: :patch,
+                            data: { confirm: "Are you sure?" }, class: "btn btn-success w-100" %>
+            </div>
+            <div class="accept-refuse p-1">
+              <%= link_to "Give-up ?",
+                            refuse_challenge_dare_path(@challenge, @dare),
+                            method: :patch,
+                            data: { confirm: "Are you sure?" }, class: "btn btn-success w-100" %>
+            </div>
+          </div>
+          <p class="p-1"  >You have until <b><em><%= @deadline.strftime("%d %m %Y") %> <%= @deadline.strftime("at %I:%M %p") %></em></b>  to complete it, after, it will be too late !! Go Go Go, you can do it !!</p>
+        </div>
+      <% end %>
+    <% elsif @dare.validated? %>
+      <p class="dare-info">The Challenge <%= @challenge.name %> have been complete on <%= @dare.updated_at.strftime("%d %m %Y") %>, Bravo !</p>
+    <% elsif @dare.failed? %>
+      <p class="dare-info">The Challenge <%= @challenge.name %> has failed or you have give up. What happened ?.</p>
+    <% end %>
