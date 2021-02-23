@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_02_22_165026) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,8 +49,14 @@ ActiveRecord::Schema.define(version: 2021_02_22_165026) do
     t.integer "difficulty"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "dares", force: :cascade do |t|
-    t.integer "progress"
+    t.integer "progress", default: 0, null: false
     t.bigint "user_id", null: false
     t.bigint "challenge_id", null: false
     t.datetime "created_at", precision: 6, null: false

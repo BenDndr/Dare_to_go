@@ -1,0 +1,17 @@
+<p class="m-3 text-justify">Aujourd'hui, nous te proposons trois choix. Je te rappel qu'il ests important
+d'en réaliser 2 à 3 par semaines pour réaliser tes objectifs.</p>
+<p class="text-center">On est avec toi</p>
+
+<% @challenge_sample.each do |challenge| %>
+  <%= link_to challenge_path(challenge) do %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= challenge.name %></h2>
+        <p><%= challenge.content %></p>
+      </div>
+    </div>
+  <% end %>
+  <br />
+<% end %>
+
