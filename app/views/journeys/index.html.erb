@@ -1,0 +1,15 @@
+<h1>Le blog</h1>
+
+<% @journeys.each do |journey| %>
+
+  <div class="notification">
+    <img src='http://www.mypnoe.com/wp-content/uploads/2019/02/endurance_sport_running_pnoe_01.jpg' class="avatar-large" />
+    <div class="notification-content">
+      <p><%= journey.title %> de <%= journey.dare.challenge.name %></p>
+      <p><%= journey.content %></p>
+      <p><small>de <%= journey.user.username %> le <%= journey.created_at %> </small></p>
+      
+    </div>
+  </div>
+
+<% end %>
