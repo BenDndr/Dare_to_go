@@ -1,7 +1,7 @@
 class DaresController < ApplicationController
-
+  before_action :set_dare, only: [:show, :accept, :refuse]
   def show
-    @dare = Dare.find(params[:id])
+
     # authorize @dare
     @challenge = Challenge.find(@dare.challenge.id)
     # @message = Message.new
@@ -10,7 +10,6 @@ class DaresController < ApplicationController
   end
 
   def accept
-    @dare = Dare.find(params[:id])
     @dare.progress = 1
     # authorize @dare
     @dare.save
@@ -19,13 +18,17 @@ class DaresController < ApplicationController
   end
 
   def refuse
-    @dare = Dare.find(params[:id])
     @dare.progress = 2
     # authorize @dare
     @dare.save
     redirect_to challenge_dare_path(@dare.challenge, @dare)
   end
 
+
+  def index
+    @dares = Dare.where(user_id: current_user)
+    @dares = @dares.where(progress: 1)
+  end
   # def new
   #   @challenge = Challenge.find(params[:challenge_id])
   #   @user_challenge = User.find(@challenge.user_id)
@@ -49,4 +52,7 @@ class DaresController < ApplicationController
   end
 
   private
+  def set_dare
+    @dare = Dare.find(params[:id])
+  end
 end
