@@ -1,5 +1,5 @@
 class Challenge < ApplicationRecord
-  has_many :messages, dependent: :destroy
+  has_many :chatrooms, dependent: :destroy
   has_many :dares, dependent: :destroy
   enum category: [ :solo, :friend, :grouped]
   has_one_attached :photo
