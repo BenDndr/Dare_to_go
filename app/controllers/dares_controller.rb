@@ -30,12 +30,13 @@ class DaresController < ApplicationController
     @dares = Dare.where(user_id: current_user)
     @dares = @dares.where(progress: 1)
   end
+
   # def new
-  #   @challenge = Challenge.find(params[:challenge_id])
-  #   @user_challenge = User.find(@challenge.user_id)
-  #   @user = current_user
-  #   @dare = Challenge.new
-  #   # authorize @dare
+  # #   @challenge = Challenge.find(params[:challenge_id])
+  # #   @user_challenge = User.find(@challenge.user_id)
+  # #   @user = current_user
+  # #   @dare = Challenge.new
+  # #   # authorize @dare
   # end
 
   def create
