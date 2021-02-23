@@ -29,7 +29,7 @@
         </div>
       <% end %>
     <% elsif @dare.validated? %>
-      <p>The Challenge <%= @challenge.name %> have been complete on <%= @date.updated_at.strftime("%d %m %Y") %>, Bravo !</p>
+      <p class="dare-info">The Challenge <%= @challenge.name %> have been complete on <%= @dare.updated_at.strftime("%d %m %Y") %>, Bravo !</p>
     <% elsif @dare.failed? %>
-      <p>The Challenge <%= @challenge.name %> has failed. What happened ?.</p>
+      <p class="dare-info">The Challenge <%= @challenge.name %> has failed. What happened ?.</p>
     <% end %>
