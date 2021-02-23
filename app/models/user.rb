@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :messages
   has_many :dares
   has_many :journeys
+  has_one_attached :photo
 end
