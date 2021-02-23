@@ -1,8 +1,10 @@
 class CategorysController < ApplicationController
 
   def index
-    
-  end
-  
 
+  end
+
+def show
+  @dare = Dare.new
+end
 end
