@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DareToGo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <title>Dare To go ! You are not alone, go with us !</title>
+    <meta name="description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta property="og:title" content="Dare to Go !">
+    <meta property="og:image" content="group.jpg">
+    <meta property="og:description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta property="og:site_name" content="Date To Go !"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Legaspite">
+    <meta name="twitter:title" content="Dare to go ! Don't be shy !">
+    <meta name="twitter:description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta name="twitter:creator" content="@Legaspite">
+    <meta name="twitter:image:src" content="http://twitter-card.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -16,6 +26,7 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/header' %>
     <%= yield %>
+    <div class="footer-placeholder"></div>
     <%= render 'shared/navbar' %>
   </body>
 </html>
