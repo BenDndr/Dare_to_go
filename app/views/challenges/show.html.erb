@@ -1,0 +1,6 @@
+<h1 class="text-center"><%= @challenge.name %></h1>
+
+<p class="text-justify"> <%= @challenge.content %> </p>
+<div class="bg-info text-black text-decoration-none text-center ">
+<%= link_to "Go!", new_challenge_dare_path(@challenge), class: "bg-info text-black text-decoration-none" %>
+</div>
