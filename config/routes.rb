@@ -9,8 +9,14 @@ Rails.application.routes.draw do
         patch :refuse
       end
       resources :messages, only: [:index, :new, :create, :edit, :update]
-      resources :journeys, only: [:index, :new, :create, :edit, :update]
+      resources :journeys, only: [:new, :create, :edit, :update]
     end
   end
+
+  resources :journeys, only: [:index]
+  namespace :my do
+    resources :journeys, only: [:index, :edit, :update, :destroy]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
