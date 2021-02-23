@@ -11,5 +11,6 @@ class Challenge < ApplicationRecord
   validates :difficulty, presence: true
   validates :xp, presence: true
   validates :delay, presence: true
+  has_one_attached :photo
 
 end

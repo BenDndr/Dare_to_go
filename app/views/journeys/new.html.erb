@@ -1,0 +1,21 @@
+<h1>Bravo <%= @dare.user.username %></h1>
+<p>Tu as terminé ton défi!!!</p>
+<% if @dare.validated? %>
+  <p>tu as validé ton défis !!!!</p>
+<% elsif @dare.failed? %> 
+  <p>tu n'as pas réussi? C'est pas grave. tu y arriveras la prochaine fois</p>
+<% end %>
+
+<p>Si tu veux, tu peux laisser une commentaire sur ton ressenti</p>
+
+<%= simple_form_for [@challenge, @dare, @journey] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :challenge_rating, collection: 0..5 %>
+  <%= f.input :public %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to challenge_dares_path, class:"text-decoration-none" do %>
+  <p class= "bg-info text-black text-center">Ignore</p>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>My journeys</h1>
+<% @journeys.each do |journey| %>
+
+  <div class="notification">
+    <img src='http://www.mypnoe.com/wp-content/uploads/2019/02/endurance_sport_running_pnoe_01.jpg' class="avatar-large" />
+    <div class="notification-content">
+      <p><small><%= journey.title %> de <%= journey.dare.challenge.name %> </small></p>
+      <p><%= journey.content %></p>
+    </div>
+
+    <div class="notification-actions">
+      <%= link_to edit_my_journey_path(journey), class:"text-decoration-none" do %>
+        <p>Edit  <span class= "fas fa-pencil-alt"></span></p>
+      <% end %>
+      <%= link_to my_journey_path(journey), method: :delete, data: { confirm: "Are you sure?" }, class:"text-decoration-none" do %>
+        <p>Delete <span class= "far fa-trash-alt"></span></p>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
