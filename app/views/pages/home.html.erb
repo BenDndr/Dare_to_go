@@ -1,2 +1,57 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-main">
+  <div class="banner text-center">
+    <h1>Dare to Go</h1>
+    <p>Overcome your shyness</p>
+    <%= link_to "Sign up",new_user_session_path, class: "btn-home-banner mx-5" %>
+  </div>
+
+  <div class="presentation">
+    <h2 class="text-center">Welcome in Dare to Go</h2>
+    <p class="text-center">Take a challenge, alone, with friend or meet new friend and improve your social skills !</p>
+    <br>
+    <p class="concept text-center">Accomplish Challenges and earn xp !</p>
+
+    <div class="menu-challenge">
+      <%= link_to challenge_path(1) do %>
+        <div class="challenge-card-home">
+          <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+          <div class="pt-2">
+            <h4 class="text-center">Challenge-1</h4>
+          </div>
+        </div>
+      <% end %>
+    <%= link_to challenge_path(2) do %>
+      <div class="challenge-card-home">
+        <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+        <div class="pt-2">
+          <h4 class="text-center">Challenge-2</h4>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to challenge_path(3) do %>
+      <div class="challenge-card-home">
+        <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+        <div class="pt-2">
+          <h4 class="text-center">Challenge-3</h4>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="card-home text-center">
+    <%= image_tag "leader-board.jpg", alt: "torphy", class: "img-card-home" %>
+    <div class="card-info">
+      <h2>Leaderboard</h2>
+      <%= link_to "Leaderboard", users_path, class: "btn-home"%>
+    </div>
+  </div>
+
+  <div class="card-home text-center">
+    <%= image_tag "journey.jpg", alt: "road", class: "img-card-home" %>
+    <div class="card-info">
+      <h2>Blog user</h2>
+      <%= link_to "Journeys", journeys_path, class: "btn-home px-4"  %>
+    </div>
+  </div>
+</div>
