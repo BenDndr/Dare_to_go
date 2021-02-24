@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <p class="header-item"><%= current_user.username %></p>
     <p class="header-item">
-      Ranl : <%= Level.where("xp_requirement < ?", current_user.challenges.sum(:xp)).last.id %> - 
+      Rank : <%= Level.where("xp_requirement < ?", current_user.challenges.sum(:xp)).last.id %> - 
       <%= Level.where("xp_requirement < ?", current_user.challenges.sum(:xp)).last.rank %></p>
     <div class="nav-item dropdown">
       <%= avatar_navbar(current_user) %>
