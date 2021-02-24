@@ -4,9 +4,12 @@
     <h2 class="text-center">Your dare !!</h2>
     <h3>Review your tasks :</h3>
     <p><%= @challenge.content  %></p>
-    <p>This dare will grant you : <%= @challenge.xp %></p>
+    <p>This dare will grant you : <%= @challenge.xp %> XP.</p>
     <% if @dare.pending? %>
       <p>The Challenge "<%= @challenge.name %>" is on his way, make your best to complet it, it's important.</p>
+      <div class="text-center">
+        <%= link_to "Want to chat with the others .", challenge_chatroom_path(@challenge, @chatroom), class: "bg-info text-black text-decoration-none" %>
+      </div>
     </div >
       <% if @dare.user_id == current_user.id %>
         <div class="link-accept-refuse d-flex flex-column dare-info p-1">
@@ -32,4 +35,5 @@
     <% elsif @dare.failed? %>
       <p class="dare-info">The Challenge <%= @challenge.name %> has failed or you have give up. What happened ?.</p>
     <% end %>
+
   </div>
