@@ -40,7 +40,7 @@ Challenge.destroy_all
 }
 
 puts "Challenge Finished!"
-
+Level.create!(rank: "Gaining Control", xp_requirement: 0)
 Level.create!(rank: "Gaining Control", xp_requirement: 100)
 Level.create!(rank: "Gaining Control", xp_requirement: 200)
 Level.create!(rank: "Gaining Control", xp_requirement: 300)
@@ -85,4 +85,3 @@ Level.create!(rank: "Self esteem", xp_requirement: 50000)
 Level.create!(rank: "Self esteem", xp_requirement: 60000)
 Level.create!(rank: "Self esteem", xp_requirement: 70000)
 puts "40 lvl created"
-

@@ -1,7 +1,9 @@
 <div class="header">
   <% if user_signed_in? %>
     <p class="header-item"><%= current_user.username %></p>
-    <p class="header-item">Lvl. 12</p>
+    <p class="header-item">
+      Rank : <%= @user_lvl.id %> -
+      <%= @user_lvl.rank %></p>
     <div class="nav-item dropdown">
       <%= avatar_navbar(current_user) %>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
