@@ -7,7 +7,7 @@ class DaresController < ApplicationController
     # @message = Message.new
     # @messages = Message.where(dare_id: @dare.id)
     @deadline = @dare.created_at + @challenge.delay*86400
-    @chatroom = Chatroom.find(1)
+    @chatroom = Chatroom.find_by(challenge_id: @challenge.id)
   end
 
   def accept
@@ -48,6 +48,7 @@ class DaresController < ApplicationController
     @dare.user = current_user
     if
       @dare.save
+      @chatroom.save
       redirect_to challenge_dare_path(@dare.challenge, @dare)
     else
       render :new
