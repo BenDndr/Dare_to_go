@@ -8,20 +8,20 @@
     <% if user_signed_in? %>
       <div class="navbar-f-item">
         <%= link_to categorys_path, class: "nav-link" do %>
-        <i class="fas fa-laugh-wink"></i>
-        <p class="nav-text">Challenge</p>
+          <i class="fas fa-laugh-wink"></i>
+          <p class="nav-text">Challenge</p>
         <% end %>
       </div>
       <div class="navbar-f-item">
         <%= link_to "#", class: "nav-link" do %>
-        <i class="fas fa-book"></i>
-        <p class="nav-text">Journey</p>
+          <i class="fas fa-book"></i>
+          <p class="nav-text">Journey</p>
         <% end %>
       </div>
       <div class="navbar-f-item">
-        <%= link_to "#", class: "nav-link" do %>
-        <i class="fas fa-user"></i>
-        <p class="nav-text">Profile</p>
+        <%= link_to my_user_path(current_user), class: "nav-link" do %>
+          <i class="fas fa-user"></i>
+          <p class="nav-text">Profile</p>
         <% end %>
       </div>
     <% else %>

@@ -1,0 +1,33 @@
+<div class="profile-card">
+  <h2 class="text-center"><%= current_user.username %></h2>
+  <p>
+    <%= current_user.presentation %>
+  </p>
+</div>
+
+<div class="profile-card">
+  <h3 class="text-center">Dares in progress</h3>
+  <ul>
+    <% @dares.each do |dare| %>
+      <li><%= dare.challenge.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="profile-card">
+  <h3 class="text-center">Dares complete</h3>
+   <ul>
+    <% @dares.each do |dare| %>
+      <li><%= dare.challenge.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="profile-card">
+  <h3 class="text-center">My Journey</h3>
+   <ul>
+    <% @journeys.each do |journey| %>
+      <li><%= journey.challenge.name %></li>
+    <% end %>
+  </ul>
+</div>
