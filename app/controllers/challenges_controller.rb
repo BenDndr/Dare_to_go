@@ -6,14 +6,17 @@ class ChallengesController < ApplicationController
     3.times do
       @challenge_sample << @challenges.sample
     end
-    @markers = {
-        lat: 48.8648482,
-        lng: 2.3798534
-      }
   end
 
   def show
     @challenge = Challenge.find(params[:id])
+    @markers = current_user.geocoded.map do |flat|
+      {
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      }
+    end
+    raise
   end
 
   private
