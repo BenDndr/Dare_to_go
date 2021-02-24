@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
   private
   def user_level
-    @user_lvl = Level.where("xp_requirement < ?", current_user.challenges.sum(:xp))
+    if user_signed_in? && current_user.challenges.nil?
+      @user_lvl = Level.where("xp_requirement <= ?", current_user.challenges.sum(:xp)).last
+    else
+      @user_lvl = Level.where("xp_requirement <= ?", 0).last
+    end
   end
 end
