@@ -3,6 +3,7 @@
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
-  <%= simple_form_for [@chatroom.challenge, @chatroom, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.challenge.name}" %>
-  <% end %>
+</div>
+<%= simple_form_for [@chatroom.challenge, @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.challenge.name}" %>
+<% end %>
