@@ -10,6 +10,15 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @users = User.all
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   private
