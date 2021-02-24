@@ -1,9 +1,10 @@
-<h1>#<%= @chatroom.name %></h1>
+<h1>#<%= @chatroom.challenge.name.capitalize %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
 </div>
+
 <%= simple_form_for [@chatroom.challenge, @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.challenge.name}" %>
 <% end %>
