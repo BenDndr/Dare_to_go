@@ -31,13 +31,18 @@ class DaresController < ApplicationController
     @dares = @dares.where(progress: 1)
   end
   #
-  # def new
-  #   @challenge = Challenge.find(params[:challenge_id])
-  #   @user = current_user
-  #   @dare = Challenge.new
-  #   @chatroom = Chatroom.new()
-  #   # authorize @dare
-  # end
+  def new
+    
+    @challenge = Challenge.find(params[:challenge_id])
+    @user = current_user
+    @dare = Dare.new
+    # @chatroom = Chatroom.new()
+    # authorize @dare
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def create
     @dare = Dare.new
