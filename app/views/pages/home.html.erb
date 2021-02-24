@@ -2,7 +2,11 @@
   <div class="banner text-center">
     <h1>Dare to Go</h1>
     <p>Overcome your shyness</p>
-    <%= link_to "Sign up",new_user_session_path, class: "btn-home-banner mx-5" %>
+    <% if user_signed_in? %>
+      <%= link_to "New Challenge", categorys_path, class: "btn-home-banner mx-5" %>
+    <% else %>
+      <%= link_to "Sign up",new_user_session_path, class: "btn-home-banner mx-5" %>
+    <% end %>
   </div>
 
   <div class="presentation">

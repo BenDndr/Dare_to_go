@@ -8,7 +8,7 @@
 <div class="profile-card">
   <h3 class="text-center">Dares in progress</h3>
   <ul>
-    <% @dares.each do |dare| %>
+    <% @dares_in_progress.each do |dare| %>
       <li><%= dare.challenge.name %></li>
     <% end %>
   </ul>
@@ -17,7 +17,7 @@
 <div class="profile-card">
   <h3 class="text-center">Dares complete</h3>
    <ul>
-    <% @dares.each do |dare| %>
+    <% @dares_complete.each do |dare| %>
       <li><%= dare.challenge.name %></li>
     <% end %>
   </ul>
@@ -27,7 +27,10 @@
   <h3 class="text-center">My Journey</h3>
    <ul>
     <% @journeys.each do |journey| %>
-      <li><%= journey.challenge.name %></li>
+      <li>
+        <%= journey.title %>
+        <%= journey.dare.challenge.name %>
+      </li>
     <% end %>
   </ul>
 </div>
