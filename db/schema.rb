@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_094100) do
+ActiveRecord::Schema.define(version: 2021_02_23_213753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_094100) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_chatrooms_on_challenge_id"
   end
 
   create_table "dares", force: :cascade do |t|
@@ -88,10 +90,10 @@ ActiveRecord::Schema.define(version: 2021_02_23_094100) do
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id", null: false
-    t.bigint "challenge_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["challenge_id"], name: "index_messages_on_challenge_id"
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -112,10 +114,11 @@ ActiveRecord::Schema.define(version: 2021_02_23_094100) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "challenges"
   add_foreign_key "dares", "challenges"
   add_foreign_key "dares", "users"
   add_foreign_key "journeys", "dares"
   add_foreign_key "journeys", "users"
-  add_foreign_key "messages", "challenges"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
