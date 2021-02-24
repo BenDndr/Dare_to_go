@@ -8,20 +8,20 @@
     <% if @dare.pending? %>
       <p>The Challenge "<%= @challenge.name %>" is on his way, make your best to complet it, it's important.</p>
       <div class="text-center">
-        <%= link_to "Want to chat with the others .", challenge_chatroom_path(@challenge, @chatroom), class: "bg-info text-black text-decoration-none" %>
+        <%= link_to "Want to chat with the others ?", challenge_chatroom_path(@challenge, @chatroom), class: "bg-info text-black text-decoration-none" %>
       </div>
     </div >
       <% if @dare.user_id == current_user.id %>
         <div class="link-accept-refuse d-flex flex-column dare-info p-1">
           <div class="inline">
             <div class="accept-refuse p-1 w-100">
-              <%= link_to "Accept",
+              <%= link_to "here to validate your dare",
                             accept_challenge_dare_path(@challenge, @dare),
                             method: :patch,
                             data: { confirm: "Are you sure?" }, class: "btn btn-success w-100" %>
             </div>
             <div class="accept-refuse p-1">
-              <%= link_to "Give-up ?",
+              <%= link_to "Want to give-up ?",
                             refuse_challenge_dare_path(@challenge, @dare),
                             method: :patch,
                             data: { confirm: "Are you sure?" }, class: "btn btn-success w-100" %>

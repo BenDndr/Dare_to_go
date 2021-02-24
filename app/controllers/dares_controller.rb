@@ -7,7 +7,7 @@ class DaresController < ApplicationController
     # @message = Message.new
     # @messages = Message.where(dare_id: @dare.id)
     @deadline = @dare.created_at + @challenge.delay*86400
-    @chatroom = Chatroom.find(challenge_id: @challenge.id)
+    @chatroom = Chatroom.find_by(challenge_id: @challenge.id)
   end
 
   def accept
