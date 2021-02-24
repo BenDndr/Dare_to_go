@@ -85,3 +85,20 @@ Level.create!(rank: "Self esteem", xp_requirement: 50000)
 Level.create!(rank: "Self esteem", xp_requirement: 60000)
 Level.create!(rank: "Self esteem", xp_requirement: 70000)
 puts "40 lvl created"
+
+puts 'creating 10 friends challenges'
+10.times {
+  difficulty = rand(3)
+  a_place = ["à la librairie", "au bar", "au musée", "au magasin", "au tabac", "à la gare", "au cinéma"]
+  a_verbe = ["demande l'heure", "dit bonjour", "parle du beau temps", "demande ton chemin", "montre du doigt", "suit pendant 5 min"]
+  endroit = a_place[rand(7)]
+  verbe = a_verbe[rand(6)]
+  namedef = verbe + " " + endroit
+  place = rand(10)
+  num_personne = rand(10)
+  content = "Va #{endroit} le plus près et #{verbe} à #{num_personne} personnes"
+  xp = 10 * difficulty * num_personne
+  delay = 10 * num_personne
+  challenge = Challenge.create!(name: namedef, category: "friend", place: place, content: content, xp: xp, delay: delay, difficulty: difficulty)
+}
+puts "Done ! Go and play !!"

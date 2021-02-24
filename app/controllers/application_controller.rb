@@ -10,12 +10,15 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :username, :birth_date, :presentation, :address, :photo])
   end
+
   private
+
   def user_level
-    if user_signed_in? && current_user.challenges.nil?
+    if user_signed_in? && !current_user.challenges.nil?
       @user_lvl = Level.where("xp_requirement <= ?", current_user.challenges.sum(:xp)).last
     else
       @user_lvl = Level.where("xp_requirement <= ?", 0).last
     end
   end
+
 end
