@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   resources :users, only: :index
   resources :categorys, only: :index
   resources :challenges, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
     resources :dares, only: [:index, :new, :create, :edit, :update, :show] do
       member do
         patch :accept
         patch :refuse
       end
-      # resources :chatrooms, only: :show
-      resources :messages, only: :create
+
+
       resources :journeys, only: [:index, :new, :create, :edit, :update]
     end
   end
