@@ -1,9 +1,14 @@
 <div class="header">
   <% if user_signed_in? %>
     <p class="header-item"><%= current_user.username %></p>
-    <p class="header-item">
-      Rank : <%= @user_lvl.id %> -
-      <%= @user_lvl.rank %></p>
+    <div>
+      <p class="header-item">
+        <%= current_user.current_level.rank %> - Dares lvl : <%= current_user.current_level.id %>
+      </p>
+      <div id="igXPBar" style="opacity: 1; display: block;">
+        <div id="igXPBarProg" style="background-color: rgb(251, 192, 45); width: <%= current_user.lvl_xp_bar %>%;"></div>
+      </div>
+    </div>
     <div class="nav-item dropdown">
       <%= avatar_navbar(current_user) %>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
