@@ -1,8 +1,14 @@
 <div class="profile-card">
-  <h2 class="text-center"><%= current_user.username %></h2>
+  
+  <h2 class="text-center"><%= current_user.username %>  </h2>
   <p>
     <%= current_user.presentation %>
   </p>
+  <div class="notification-actions d-flex justify-content-end align-items-end">  
+    <%= link_to edit_user_registration_path, class:"text-decoration-none" do %>
+      <p>Edit  <span class= "fas fa-pencil-alt"></span></p>
+    <% end %>
+  </div>
 </div>
 
 <div class="profile-card">
