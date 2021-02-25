@@ -1,0 +1,44 @@
+
+<div class="p-2">
+  <h4 class="">My challenges in progress</h4>
+
+    <% @dares.each do |dare| %>
+            <div class="text-card-index">
+            <h5 class="title-dare"><%= dare.challenge.name %></h5>
+            <span class="discipline-index"> XP :<%= dare.challenge.xp %></span>
+             <p class="p-1"  >You have until <b><em><%= (dare.created_at + dare.challenge.delay*86400).strftime("%d %m %Y") %> <%= (dare.created_at + dare.challenge.delay*86400).strftime("at %I:%M %p") %></em></b> to complete it, after, it will be too late !! Go Go Go, you can do it !!</p>
+            <br>
+            <span class="description-index">
+              <%if (dare.challenge.content.to_s).size < 50  %>
+                <%= dare.description %>
+              <% else %>
+                <%= (dare.challenge.content.to_s).truncate(200) %>...
+              <% end %>
+            </span>
+          </div>
+          <div class="btn-index">
+            <%= link_to "See more", challenge_dare_path(dare.challenge, dare), class: "btn btn-success"  %>
+        </div>
+    <% end %>
+</div>
+<div class="">
+  <h4 class="">My 5 last challenge completed</h4>
+
+    <% @dares_completed.each do |dare| %>
+            <div class="text-card-index">
+            <h5 class="title-dare"><%= dare.challenge.name %></h5>
+            <span class="discipline-index"> XP :<%= dare.challenge.xp %></span>
+            <br>
+            <span class="description-index">
+              <%if (dare.challenge.content.to_s).size < 50  %>
+                <%= dare.description %>
+              <% else %>
+                <%= (dare.challenge.content.to_s).truncate(200) %>...
+              <% end %>
+            </span>
+          </div>
+          <div class="btn-index">
+            <%= link_to "See more", challenge_dare_path(dare.challenge, dare), class: "btn btn-success"  %>
+        </div>
+    <% end %>
+</div>
