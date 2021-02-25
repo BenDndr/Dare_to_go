@@ -3,16 +3,12 @@
     <h1>Learderboard</h1>
     <p>Vos informations</p>
 </div>
-<div>
-  <ul>
-  <% @users.each do |user| %>
-    <li><%= user.username %></li>
-    <li><%= user.email %></li>
-    <li><%= user.birth_date %></li>
-    <li><%= user.presentation %></li>
-    <li><%= user.address %></li>
-  <% end %>
-</ul>
-</div>
-
+<% @users.each do |user| %>
+  <div style="background-color:blue" class="d-flex aaa">
+    <div class="img-leader">
+      <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, class:"img-leader-link" %>
+    </div>
+    <%= user.username %>
+  </div>
+<% end %>
 
