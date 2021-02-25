@@ -6,4 +6,5 @@ class My::UsersController < ApplicationController
     @dares_in_progress = @dares.where(progress: "pending")
     @journeys = Journey.where(user_id: params[:id])
   end
+
 end
