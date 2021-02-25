@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
 
 
-      resources :journeys, only: [:index, :new, :create, :edit, :update]
+      resources :journeys, only: [:index, :new, :create, :show, :edit, :update]
     end
   end
 
