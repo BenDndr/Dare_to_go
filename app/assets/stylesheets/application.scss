@@ -17,8 +17,11 @@
 @import "pages/form";
 @import "users/profile";
 @import "chatrooms/index";
-
+@import "journeys/blog";
 
 body {
   font-family: 'Mukta', sans-serif;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1517495306984-f84210f9daa8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+  background-size: cover;
+  background-attachment: fixed;
 }

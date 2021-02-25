@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
 
 
-      resources :journeys, only: [:index, :new, :create, :edit, :update]
+      resources :journeys, only: [:index, :new, :create, :show, :edit, :update]
     end
   end
 
@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   namespace :my do
     resources :journeys, only: [:index, :edit, :update, :destroy]
     resources :users, only: :show
-    resources :dares, only: [:show, :index]
+    resources :dares, only: [:index, :show]
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

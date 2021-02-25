@@ -33,7 +33,7 @@
       <% end %>
       <div>
     <% elsif @dare.validated? %>
-      <p class="dare-info">The Challenge <%= @challenge.name %> have been complete on <%= @dare.updated_at.strftime("%d %m %Y") %>, Bravo !</p>
+      <p class="dare-info">The Challenge <%= @challenge.name %> have been complete on <%= @dare.updated_at.strftime("%d %m %Y") %>, Congrats !</p>
       <div class="btn-box">
         <%= link_to "Tell a Journey", new_challenge_dare_journey_path(@challenge, @dare), class: "btn-main" %>
       </div>

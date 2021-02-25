@@ -1,15 +1,22 @@
-<h1>Le blog</h1>
+<div class="blog-main">
+  <h2 class="text-center">Journey Diary</h2>
 
-<% @journeys.each do |journey| %>
-
-  <div class="notification">
-    <img src='http://www.mypnoe.com/wp-content/uploads/2019/02/endurance_sport_running_pnoe_01.jpg' class="avatar-large" />
-    <div class="notification-content">
-      <p><%= journey.title %> de <%= journey.dare.challenge.name %></p>
-      <p><%= journey.content %></p>
-      <p><small>de <%= journey.user.username %> le <%= journey.created_at %> </small></p>
-      
+  <% @journeys.last(5).each do |journey| %>
+    <div class="blog-journey">
+      <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+      <div class="notification-content">
+        <h4><%= journey.title %></h4>
+        <p><small>par <%= journey.user.username %> le <%= journey.created_at.to_s.first(10) %> </small></p>
+        <p class="c1">Challenge: <%= link_to journey.dare.challenge.name, challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) %></p>
+        <% if journey.content.size < 30 %>
+          <p><%= journey.content %></p>
+        <% else %>
+          <p><%= journey.content.truncate(60) %></p>
+        <% end %>
+        <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
+          <p class="text-center"><strong>Read more</strong></p>
+        <% end %>
+      </div>
     </div>
-  </div>
-
-<% end %>
+  <% end %>
+</div>

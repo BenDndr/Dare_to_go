@@ -15,7 +15,7 @@
   <h3 class="text-center">Dares in progress</h3>
   <ul>
     <% @dares_in_progress.each do |dare| %>
-      <li><%= dare.challenge.name %></li>
+      <li><%= link_to dare.challenge.name, challenge_dare_path(dare.challenge, dare) %></li>
     <% end %>
   </ul>
 </div>
@@ -31,12 +31,15 @@
 
 <div class="profile-card">
   <h3 class="text-center">My Journey</h3>
-   <ul>
-    <% @journeys.each do |journey| %>
-      <li>
-        <%= journey.title %>
+  <% @journeys.last(5).each do |journey| %>
+    <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
+      <div class="blog-journey">
+        <h4><%= journey.title %></h4>
         <%= journey.dare.challenge.name %>
-      </li>
+      </div>
     <% end %>
-  </ul>
+  <% end %>
+  <div class="btn-box">
+    <%= link_to "More", my_journeys_path, class: "btn-blue" %>
+  </div>
 </div>
