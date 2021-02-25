@@ -3,10 +3,10 @@
     <p class="header-item"><%= current_user.username %></p>
     <div>
       <p class="header-item">
-        <%= @user_lvl.rank %> - Dares lvl : <%= @user_lvl.id %>
+        <%= current_user.current_level.rank %> - Dares lvl : <%= current_user.current_level.id %>
       </p>
       <div id="igXPBar" style="opacity: 1; display: block;">
-        <div id="igXPBarProg" style="background-color: rgb(251, 192, 45); width: <%= @lvl %>%;"></div>
+        <div id="igXPBarProg" style="background-color: rgb(251, 192, 45); width: <%= current_user.lvl_xp_bar %>%;"></div>
       </div>
     </div>
     <div class="nav-item dropdown">
