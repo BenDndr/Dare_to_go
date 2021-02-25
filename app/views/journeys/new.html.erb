@@ -1,12 +1,11 @@
-<h1>Bravo <%= @dare.user.username %></h1>
-<p>Tu as terminé ton défi!!!</p>
+<h1>Congrats <%= @dare.user.username %></h1>
 <% if @dare.validated? %>
-  <p>tu as validé ton défis !!!!</p>
-<% elsif @dare.failed? %> 
-  <p>tu n'as pas réussi? C'est pas grave. tu y arriveras la prochaine fois</p>
+  <p>You succed this challenge, good job!</p>
+<% elsif @dare.failed? %>
+  <p>You didn't made it? Not a big deal, you'll succed next time!</p>
 <% end %>
 
-<p>Si tu veux, tu peux laisser une commentaire sur ton ressenti</p>
+<p>Write your feelings about this challenge, you can share it with other users if you wish to.</p>
 
 <%= simple_form_for [@challenge, @dare, @journey] do |f| %>
   <%= f.input :title %>

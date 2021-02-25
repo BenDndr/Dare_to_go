@@ -8,6 +8,15 @@ class DaresController < ApplicationController
     # @messages = Message.where(dare_id: @dare.id)
     @deadline = @dare.created_at + @challenge.delay*86400
     @chatroom = Chatroom.find_by(challenge_id: @challenge.id)
+
+    @users = User.where(id: current_user.id)
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def accept
