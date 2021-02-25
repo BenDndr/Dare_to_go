@@ -6,12 +6,24 @@ class ChallengesController < ApplicationController
     3.times do
       @challenge_sample << @challenges.sample
     end
+    @nb_challenge = []
+    @dares = Dare.where(user_id: current_user.id)
+    
+    @challenge_sample.each do |challenge|
+      count = 0
+      @dares.each do |dare|
+        if dare.challenge_id == challenge.id
+          count += 1
+        end  
+      end
+      @nb_challenge << count
+    end
+    
   end
 
   def show
     @challenge = Challenge.find(params[:id])
-    @users = User.all
-
+    @users = User.where(id: current_user.id)
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @users.geocoded.map do |user|
       {
@@ -19,6 +31,15 @@ class ChallengesController < ApplicationController
         lng: user.longitude
       }
     end
+    @dares = Dare.where(user_id: current_user.id)
+    @count = 0
+    
+    @dares.each do |dare|
+      if dare.challenge_id == @challenge.id
+        @count += 1
+      end
+    end
+    
   end
 
   private
