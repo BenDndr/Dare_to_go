@@ -1,6 +1,5 @@
 <div class="message-container" id="message-<%= message.id %>">
   <% if message.user.id == current_user.id %>
-
     <blockquote class="chat-bubble-user d-flex justify-content-between">
       <div class="w-100">
         <p><%= message.content %></p>
