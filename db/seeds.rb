@@ -104,19 +104,23 @@ Level.create!(rank: "Self esteem", xp_requirement: 70000)
 puts "40 lvl created"
 
 require 'csv'
+require 'open-uri'
 
 puts "Creating challenges"
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath    = 'challenges.csv'
+filepath    = open("https://raw.githubusercontent.com/BenDndr/Dare_to_go/master/db/challenges.csv")
+# csv = CSV.read(filepath)
 CSV.foreach(filepath, csv_options) do |row|
-  Challenge.create(
-    name: "#{row['name']}"
-    category: "#{row['category'].to_i}"
-    place: "#{row['place'].to_i}"
-    content: "#{row['content']}"
-    difficulty: "#{row['difficulty'].to_i}"
-    xp: "#{row['xp'].to_i}"
+  challenge = Challenge.new(
+    name: "#{row['name']}",
+    category: "#{row['category'].to_i}",
+    place: "#{row['place'].to_i}",
+    content: "#{row['content']}",
+    difficulty: "#{row['difficulty'].to_i}",
+    xp: "#{row['xp'].to_i}",
     delay: "#{row['delay'].to_i}"
   )
+  challenge.photo.attach(io: File.open("#{row['image']}"), content_type: 'image/jpeg')
+  challenge.save!
   puts "Done"
 end
