@@ -27,6 +27,8 @@ import "bootstrap";
 import { initChatroomCable } from '../channels/chatroom_channel.js';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
+import { auto_close } from './auto_close';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -35,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initChatroomCable();
   initMapbox();
+  auto_close();
 });

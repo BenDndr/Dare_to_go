@@ -1,0 +1,30 @@
+.blog-main {
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
+
+.blog-journey {
+  background-color: white;
+  margin: 12px;
+  border-radius: 12px;
+  padding-bottom: 4px;
+  box-shadow: 4px 4px 4px darkgrey;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.c1 {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.c2 {
+  font-color: $main-blue;
+  font-size: 20px;
+}
+
+.journey-show {
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
