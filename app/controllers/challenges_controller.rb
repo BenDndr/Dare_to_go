@@ -8,7 +8,6 @@ class ChallengesController < ApplicationController
     end
     @nb_challenge = []
     @dares = Dare.where(user_id: current_user.id)
-    
     @challenge_sample.each do |challenge|
       count = 0
       @dares.each do |dare|
