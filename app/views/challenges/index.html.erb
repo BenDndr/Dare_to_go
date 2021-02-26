@@ -15,7 +15,7 @@ d'en réaliser 2 à 3 par semaines pour réaliser tes objectifs.</p>
         <p class="information">"<%= challenge.content.truncate(80)... %>."</p>
       </div>
       <div class="product-image">
-        <%= image_tag "friends2.jpg", alt: "challenge friends"%>
+        <%= cl_image_tag challenge.photo.key, alt: "challenge friends"%>
       <div class="info">
         <h3>Details</h3>
         <ul>

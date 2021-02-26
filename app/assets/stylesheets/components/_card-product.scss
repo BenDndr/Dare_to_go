@@ -119,6 +119,7 @@
 	margin-left: 0.5em;
 	color: gold;
 	width: 50%;
+  font-size: 20px;
 }
 
 
@@ -239,3 +240,8 @@
 
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
+
+.discipline-index {
+  color: $main-blue;
+  font-size: 20px;
+}
