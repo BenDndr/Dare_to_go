@@ -3,6 +3,7 @@ class DaresController < ApplicationController
 
   def show
     # authorize @dare
+    DelayJob.perform_now
     @challenge = Challenge.find(@dare.challenge.id)
     # @message = Message.new
     # @messages = Message.where(dare_id: @dare.id)

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   devise_for :users
   root to: 'pages#home'
+  
   resources :users, only: :index
   resources :categorys, only: :index
   resources :challenges, only: [:index, :show, :new, :create, :edit, :update] do
