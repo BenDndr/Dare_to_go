@@ -113,14 +113,14 @@ filepath    = open("https://raw.githubusercontent.com/BenDndr/Dare_to_go/master/
 CSV.foreach(filepath, csv_options) do |row|
   challenge = Challenge.new(
     name: "#{row['name']}",
-    category: "#{row['category'].to_i}",
+    category: "#{row['category']}",
     place: "#{row['place'].to_i}",
     content: "#{row['content']}",
     difficulty: "#{row['difficulty'].to_i}",
     xp: "#{row['xp'].to_i}",
     delay: "#{row['delay'].to_i}"
   )
-  challenge.photo.attach(io: File.open("#{row['image']}"), content_type: 'image/jpeg')
+  challenge.photo.attach(io: URI.open("#{row['image']}"), filename: "#{row['name']}.png", content_type: 'image/jpeg')
   challenge.save!
   puts "Done"
 end
