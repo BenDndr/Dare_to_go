@@ -12,8 +12,8 @@
         En cliquant sur "accepter", tu t'engages auprès de toi même pour réussir ce défi!
       </div>
       <div class="modal-footer bg-primary">
-         <button type="button" class="btn btn-info text-white" data-dismiss="modal">Refuser</button>
-        <%= link_to "Accepter", challenge_dares_path(@challenge), class: "btn btn-info text-white", method: :post %>
+         <button type="button" class="btn-main" data-dismiss="modal">Refuser</button>
+        <%= link_to "Accepter", challenge_dares_path(@challenge), class: "btn-main", method: :post %>
       </div>
     </div>
   </div>
@@ -25,8 +25,8 @@
 <p class="text-justify"> Tu as fait <%= @count %> fois ce défi.</p>
 
 <!-- Button trigger modal -->
-<div class="flex-grow-1 bg-info text-black text-decoration-none text-center ">
-  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+<div class="btn-box">
+  <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
     Go!
   </button>
 </div>

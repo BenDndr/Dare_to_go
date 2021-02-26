@@ -12,9 +12,11 @@
   <%= f.input :content %>
   <%= f.input :challenge_rating, collection: 0..5 %>
   <%= f.input :public %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn-main" %>
 <% end %>
 
-<%= link_to my_dares_path, class:"text-decoration-none" do %>
-  <p class= "bg-info text-black text-center">Ignore</p>
+<%= link_to my_dares_path(current_user), class:"text-decoration-none" do %>
+  <div class="btn-box">
+    <p class= "btn-blue">Ignore</p>
+  </div>
 <% end %>
