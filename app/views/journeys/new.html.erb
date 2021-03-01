@@ -8,10 +8,13 @@
 <p>Write your feelings about this challenge, you can share it with other users if you wish to.</p>
 
 <%= simple_form_for [@challenge, @dare, @journey] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :challenge_rating, collection: 0..5 %>
-  <%= f.input :public, input_html: { class: 'toggle' }  %>
+  <%= f.input :title, placeholder: 'Your title ...' %>
+  <%= f.input :content, placeholder: 'Your content ...' %>
+  <%= f.input :challenge_rating, collection: 0..5, selected: 5 %>
+  <div class="btn-box">
+    <%= f.input :public, input_html: { class: 'toggle' }  %>
+  </div>
+
   <div class="btn-box">
     <%= f.button :submit, class: "btn-main" %>
   </div>
