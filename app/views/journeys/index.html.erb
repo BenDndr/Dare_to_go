@@ -3,7 +3,7 @@
 
   <% @journeys.last(5).each do |journey| %>
     <div class="blog-journey">
-      <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+      <%= cl_image_tag journey.dare.challenge.photo.key, height: 300, crop: :fill, alt: "photo-challenge", class: "img-challenge-home" %>
       <div class="notification-content">
         <h4><%= journey.title %></h4>
         <p><small>par <%= journey.user.username %> le <%= journey.created_at.to_s.first(10) %> </small></p>

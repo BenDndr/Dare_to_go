@@ -15,6 +15,8 @@
         <%= link_to "Profile", my_user_path(current_user), class: "dropdown-item" %>
         <%= link_to "My journey", my_journeys_path(current_user), class: "dropdown-item" %>
         <%= link_to "My dares", my_dares_path(current_user), class: "dropdown-item" %>
+        <%= link_to "Leaderboard", users_path, class: "dropdown-item" %>
+        <%= link_to "Journeys", journeys_path, class: "dropdown-item" %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
   <% else %>
