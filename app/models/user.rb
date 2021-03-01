@@ -27,4 +27,5 @@ class User < ApplicationRecord
     (total_xp - current_level.xp_requirement).fdiv(next_level.xp_requirement -
     current_level.xp_requirement) * 100
   end
+
 end

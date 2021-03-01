@@ -28,6 +28,7 @@ import { initChatroomCable } from '../channels/chatroom_channel.js';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { auto_close } from './auto_close';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -38,4 +39,28 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
+  // initSweetalert('#sweet-alert-demo', {
+  //   title: "A nice alert",
+  //   text: "This is a great alert, isn't it?",
+  //   icon: "warning"
+  // });
+  
+
+ 
+  const refresh = () => {
+    fetch('/alertes', { headers: { accept: "application/json" } })
+      .then(response => response.json())
+      .then((data) => {
+        // console.log(data.alertes);
+        // if (data == null)
+        swal({
+          title: "A nice alert",
+          text: `${data.alertes} failed`,
+          icon: "error"
+        }); 
+        
+      });
+  }
+  // refresh();
+  setInterval(refresh, 500);
 });
