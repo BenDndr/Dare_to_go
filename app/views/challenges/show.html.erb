@@ -22,15 +22,19 @@
 <h1 class="text-center"><%= @challenge.name %></h1>
 
 <p class="text-justify"> <%= @challenge.content %> </p>
-<p class="text-justify"> You have already done the challenge  <b><%= @count %></b> times.</p>
+<p class="text-justify">You have already done the challenge  <b><%= @count %></b> times.</p>
 <% if @challenge.grouped? %>
 <div>
-  <span>Already <%= @attendees.count  %> attendees : </span>
-    <% @attendees.each do |attendee| %>
-    <span> <b><%= attendee.username %></b> </span>
-    <% end %>
-    <p>Why not joining them ? It will be fun !!</p>
+  <% if @attendees.count > 0 %>
+    <span>Already <%= @attendees.count  %> attendees : </span>
+      <% @attendees.each do |attendee| %>
+      <span><b><%= attendee.username %></b> </span>
+      <% end %>
+      <p>Why not joining them ? It will be fun !!</p>
 </div>
+<% else %>
+    <p>Be the first attendee and show the others the way !</p>
+  <% end %>
 <% end %>
 <!-- Button trigger modal -->
 <div class="btn-box">
