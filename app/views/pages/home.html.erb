@@ -21,7 +21,7 @@
       <% n3 = (21..30).to_a.sample %>
       <%= link_to challenge_path(n1) do %>
         <div class="challenge-card-home">
-          <%= image_tag "challenges/Challenge#{n1}.jpeg", alt: "Challenge1", class: "img-challenge-home" %>
+          <%= cl_image_tag Challenge.find(n1).photo.key, alt: "Challenge1", class: "img-challenge-home" %>
           <div class="pt-2">
             <h4 class="text-center">Challenge 1</h4>
           </div>
@@ -29,7 +29,7 @@
       <% end %>
     <%= link_to challenge_path(n2) do %>
       <div class="challenge-card-home">
-        <%= image_tag "challenges/Challenge#{n2}.jpeg", alt: "Challenge2", class: "img-challenge-home" %>
+        <%= cl_image_tag Challenge.find(n2).photo.key, alt: "Challenge2", class: "img-challenge-home" %>
         <div class="pt-2">
           <h4 class="text-center">Challenge 2</h4>
         </div>
@@ -37,7 +37,7 @@
     <% end %>
     <%= link_to challenge_path(n3) do %>
       <div class="challenge-card-home">
-        <%= image_tag "challenges/Challenge#{n3}.jpeg", alt: "Challenge3", class: "img-challenge-home" %>
+        <%= cl_image_tag Challenge.find(n3).photo.key, alt: "Challenge3", class: "img-challenge-home" %>
         <div class="pt-2">
           <h4 class="text-center">Challenge 3</h4>
         </div>
