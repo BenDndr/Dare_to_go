@@ -18,11 +18,12 @@
     </div>
   </div>
 </div>
-<div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 400, crop: :fill %>')">
-<h1 class="text-center text-white" ><%= @challenge.name.capitalize %></h1>
+<div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 400, crop: :fill %>')">
+<h1 class="text-white" ><b><%= @challenge.name.capitalize %></b></h1>
 </div>
 <p class="text-justify"> <%= @challenge.content %> </p>
 <p class="text-justify">You have already done the challenge  <b><%= @count %></b> times.</p>
+ <%# <% if @challenge.grouped? && Time.now < @challenge.incription %>
 <% if @challenge.grouped? %>
 <div>
   <% if @attendees.count > 0 %>
@@ -31,9 +32,9 @@
       <span><b><%= attendee.username %></b> </span>
       <% end %>
       <p>Why not joining them ? It will be fun !!</p>
+    <% else %>
+      <p>Be the first attendee and show the others the way !</p>
 </div>
-<% else %>
-    <p>Be the first attendee and show the others the way !</p>
   <% end %>
 <% end %>
 <!-- Button trigger modal -->
