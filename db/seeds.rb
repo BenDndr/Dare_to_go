@@ -108,7 +108,7 @@ require 'open-uri'
 
 puts "Creating challenges"
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath    = open("https://raw.githubusercontent.com/BenDndr/Dare_to_go/master/db/challenges.csv")
+filepath    = open("https://raw.githubusercontent.com/BenDndr/Dare_to_go/master/db/Challenges.csv")
 n = 0
 CSV.foreach(filepath, csv_options) do |row|
   n += 1
