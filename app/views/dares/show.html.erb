@@ -1,8 +1,9 @@
 
-<div class="container">
+<div class="">
   <div class="">
+
+    <h1 class="text-center text-white" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 400, crop: :fill %>')"><%= @dare.challenge.name.capitalize %></h1>
     <h2 class="text-center">Your dare:</h2>
-    <h4 class="text-center"><%= @dare.challenge.name %></h4>
     <p><strong>Review your tasks:</strong></p>
     <p><%= @challenge.content  %></p>
     <p>This dare will grant you : <%= @challenge.xp %> XP.</p>
@@ -54,7 +55,7 @@
   <br />
 </div>
 <div id="map"
-   style="width: 100%; height: 600px;"
+   style="width: 100%; height: 300px;"
    data-markers="<%= @markers.to_json %>"
    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
