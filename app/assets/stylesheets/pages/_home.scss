@@ -43,6 +43,7 @@
 }
 
 .banner {
+  position: relative;
   background-image: linear-gradient(to bottom, rgba(112, 205, 255, 0.4), rgba(0, 0, 0, 0.5)), asset-url("Dare-home.jpg");
   background-size: cover;
   background-position: center;
@@ -100,4 +101,14 @@
   grid-auto-flow: column;
   overflow: auto hidden;
   gap: 12px;
+}
+.logo{
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 12px 12px 0 0;
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  left: 33%;
+  top: 5px;
 }
