@@ -28,6 +28,7 @@ import { initChatroomCable } from '../channels/chatroom_channel.js';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { auto_close } from './auto_close';
+import { success } from './success';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

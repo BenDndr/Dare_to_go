@@ -11,9 +11,13 @@
       <div class="modal-body">
         By clicking on "Accept". You pledge to do this challenge !
       </div>
-      <div class="modal-footer bg-primary">
-         <button type="button" class="btn-main" data-dismiss="modal">Refuser</button>
-        <%= link_to "Accept", challenge_dares_path(@challenge), class: "btn-main", method: :post %>
+      <div class="bg-primary">
+        <div class="btn-box">
+          <%= link_to "Accept", challenge_dares_path(@challenge), class: "btn-main", method: :post %>
+        </div>
+        <div class="btn-box">
+          <button type="button" class="btn-white" data-dismiss="modal">Refuse</button>
+        </div>
       </div>
     </div>
   </div>
