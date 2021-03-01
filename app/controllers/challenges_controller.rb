@@ -24,7 +24,8 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
     @users = User.where(id: current_user.id)
-
+    @dares_attendees = Dare.where(challenge_id: @challenge.id)
+    @attendees = @dares_attendees.map { |dare|  User.find(dare.user_id) }
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
