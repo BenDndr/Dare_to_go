@@ -109,8 +109,9 @@ require 'open-uri'
 puts "Creating challenges"
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = open("https://raw.githubusercontent.com/BenDndr/Dare_to_go/master/db/challenges.csv")
-# csv = CSV.read(filepath)
+n = 0
 CSV.foreach(filepath, csv_options) do |row|
+  n += 1
   challenge = Challenge.new(
     name: "#{row['name']}",
     category: "#{row['category']}",
@@ -120,7 +121,7 @@ CSV.foreach(filepath, csv_options) do |row|
     xp: "#{row['xp'].to_i}",
     delay: "#{row['delay'].to_i}"
   )
-  challenge.photo.attach(io: URI.open("#{row['image']}"), filename: "#{row['name']}.png", content_type: 'image/jpeg')
+  challenge.photo.attach(io: File.open(Rails.root.join("app/assets/images/challenges/Challenge#{n}.jpeg")), filename: "Challenge#{n}", content_type: 'image/jpeg')
   challenge.save!
   puts "Done"
 end
