@@ -30,6 +30,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { auto_close } from './auto_close';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { alerte_failed } from '../plugins/alerte_failed';
+import { success } from './success';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

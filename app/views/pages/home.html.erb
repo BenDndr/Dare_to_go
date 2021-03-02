@@ -1,6 +1,6 @@
 <div class="home-main">
   <div class="banner text-center">
-    <h1>Dare to Go</h1>
+    <%= image_tag "Logo-.png", alt: "logo", class: "logo" %>
     <p>Overcome your shyness</p>
     <% if user_signed_in? %>
       <%= link_to "New Challenge", categorys_path, class: "btn-home-banner mx-5" %>
@@ -16,27 +16,30 @@
     <p class="concept text-center">Accomplish Challenges and earn xp !</p>
 
     <div class="menu-challenge">
-      <%= link_to challenge_path(1) do %>
+      <% n1 = (1..10).to_a.sample %>
+      <% n2 = (11..20).to_a.sample %>
+      <% n3 = (21..30).to_a.sample %>
+      <%= link_to challenge_path(n1) do %>
         <div class="challenge-card-home">
-          <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+          <%= cl_image_tag Challenge.find(n1).photo.key, alt: "Challenge1", class: "img-challenge-home" %>
           <div class="pt-2">
-            <h4 class="text-center">Challenge-1</h4>
+            <h4 class="text-center">Challenge 1</h4>
           </div>
         </div>
       <% end %>
-    <%= link_to challenge_path(2) do %>
+    <%= link_to challenge_path(n2) do %>
       <div class="challenge-card-home">
-        <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+        <%= cl_image_tag Challenge.find(n2).photo.key, alt: "Challenge2", class: "img-challenge-home" %>
         <div class="pt-2">
-          <h4 class="text-center">Challenge-2</h4>
+          <h4 class="text-center">Challenge 2</h4>
         </div>
       </div>
     <% end %>
-    <%= link_to challenge_path(3) do %>
+    <%= link_to challenge_path(n3) do %>
       <div class="challenge-card-home">
-        <%= image_tag "group.jpg", alt: "armpit-check", class: "img-challenge-home" %>
+        <%= cl_image_tag Challenge.find(n3).photo.key, alt: "Challenge3", class: "img-challenge-home" %>
         <div class="pt-2">
-          <h4 class="text-center">Challenge-3</h4>
+          <h4 class="text-center">Challenge 3</h4>
         </div>
       </div>
     <% end %>

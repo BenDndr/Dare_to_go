@@ -1,36 +1,61 @@
 <div class="">
-  
-  <h1 class="text-center m-3">Bienvenue <%= current_user.username %></h1>
-  <h2 class="text-center bg-primary text-white my-3 py-2">Que veux tu faire aujourd'hui?</h2>
-
+  <div class="welcome">
+  <h1 class="text-center m-1">Welcome <b><%= current_user.username %></b></h1>
+  <br>
+  <h2 class="text-center bg-primary text-white">What do you want to do?</h2>
+</div>
   <%= link_to challenges_path(category: :solo) do %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Défi solo</h2>
-        <p>Choisi un des trois défis proposé et lance toi en <strong>solitaire</strong>.</p>
-      </div>
+  <div id="card-container">
+    <div class="product-details">
+      <h1>Solo challenge</h1>
+      <p class="information">"Select a challenge among 3 random challenges and achieve it in <strong>solo</strong>."</p>
     </div>
+    <div class="product-image">
+      <%= image_tag "solo.jpg", alt: "challenge solo"%>
+    <div class="info">
+      <h3>Details</h3>
+      <ul>
+        <li><strong>First step !</strong></li>
+      </ul>
+    </div>
+    </div>
+  </div>
   <% end %>
   <br />
   <%= link_to challenges_path(category: :friend) do %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Défi amis</h2>
-        <p>Optimises tes relations avec tes <strong>proches</strong>.</p>
-      </div>
+  <div id="card-container">
+    <div class="product-details">
+      <h1>Friend challenge</h1>
+      <p class="information">"Select one out of 3 random challenges to optimize your relations with your <strong>relatives</strong>."</p>
     </div>
+    <div class="product-image">
+      <%= image_tag "friends2.jpg", alt: "challenge friends"%>
+    <div class="info">
+      <h3>Details</h3>
+      <ul>
+        <li><strong>Go social !! </strong></li>
+      </ul>
+    </div>
+    </div>
+  </div>
   <% end %>
   <br />
   <%= link_to challenges_path(category: :grouped) do %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Défi groupé</h2>
-        <p>Choisi un des trois défis proposé et lance toi en <strong>groupe</strong>.</p>
-      </div>
+  <div id="card-container">
+    <div class="product-details">
+      <h1>Group challenge</h1>
+      <p class="information">"Select one of the three challenges and meet other user to achieve a <strong>group challenge</strong>."</p>
     </div>
+    <div class="product-image">
+
+      <%= image_tag "group2.jpg", alt: "challenge friends"%>    <div class="info">
+      <h3>Details</h3>
+      <ul>
+        <li><strong>Last step !!</strong></li>
+      </ul>
+    </div>
+    </div>
+  </div>
   <% end %>
 
 </div>

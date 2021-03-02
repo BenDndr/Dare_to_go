@@ -16,8 +16,11 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '859412b2f631f60524e184dcc8b739763049a74aa945cf7425474c1e2f749183c63cdf4c708a3212131a9199f162f712a90040acc8cb7ccfb7581c9e15dbbb67'
 
-  # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name',
+    image_size: 'square',  # 50x50, guaranteed ratio
+    secure_image_url: true  # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration

@@ -9,31 +9,47 @@
         </button>
       </div>
       <div class="modal-body">
-        En cliquant sur "accepter", tu t'engages auprès de toi même pour réussir ce défi!
+        By clicking on "Accept". You pledge to do this challenge !
       </div>
-      <div class="modal-footer bg-primary">
-         <button type="button" class="btn btn-info text-white" data-dismiss="modal">Refuser</button>
-        <%= link_to "Accepter", challenge_dares_path(@challenge), class: "btn btn-info text-white", method: :post %>
+      <div class="bg-primary">
+        <div class="btn-box">
+          <%= link_to "Accept", challenge_dares_path(@challenge), class: "btn-main", method: :post %>
+        </div>
+        <div class="btn-box">
+          <button type="button" class="btn-white" data-dismiss="modal">Refuse</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<h1 class="text-center"><%= @challenge.name %></h1>
-
+<div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 400, crop: :fill %>')">
+<h1 class="text-white" ><b><%= @challenge.name.capitalize %></b></h1>
+</div>
 <p class="text-justify"> <%= @challenge.content %> </p>
-<p class="text-justify"> Tu as fait <%= @count %> fois ce défi.</p>
-<button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
-
+<p class="text-justify">You have already done the challenge  <b><%= @count %></b> times.</p>
+ <%# <% if @challenge.grouped? && Time.now < @challenge.incription %>
+<% if @challenge.grouped? %>
+<div>
+  <% if @attendees.count > 0 %>
+    <span>Already <%= @attendees.count  %> attendees : </span>
+      <% @attendees.each do |attendee| %>
+      <span><b><%= attendee.username %></b> </span>
+      <% end %>
+      <p>Why not joining them ? It will be fun !!</p>
+    <% else %>
+      <p>Be the first attendee and show the others the way !</p>
+</div>
+  <% end %>
+<% end %>
 <!-- Button trigger modal -->
-<div class="flex-grow-1 bg-info text-black text-decoration-none text-center ">
-  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+<div class="btn-box">
+  <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
     Go!
   </button>
 </div>
 
 <div id="map"
-     style="width: 100%; height: 600px;"
+     style="width: 100%; height: 300px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

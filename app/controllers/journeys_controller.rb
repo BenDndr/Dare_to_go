@@ -17,7 +17,7 @@ class JourneysController < ApplicationController
     @journey.user = current_user
     @journey.dare = @dare
     if @journey.save
-      redirect_to challenge_dares_path(@challenge)
+      redirect_to my_dares_path(current_user)
     else
       render new
     end

@@ -2,6 +2,8 @@ class DaresController < ApplicationController
   before_action :set_dare, only: [:show, :accept, :refuse]
 
   def show
+    @dares_attendees = Dare.where(id: params[:id])
+    @attendees = @dares_attendees.map { |dare|  User.find(dare.user_id) }
     # authorize @dare
     
     @challenge = Challenge.find(@dare.challenge.id)
