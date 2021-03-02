@@ -120,7 +120,7 @@ CSV.foreach(filepath, csv_options) do |row|
     difficulty: "#{row['difficulty'].to_i}",
     xp: "#{row['xp'].to_i}",
     delay: "#{row['delay'].to_i}",
-    incription: "#{row['inscription'].to_i}"
+    inscription: "#{row['inscription'].to_i}"
   )
   challenge.photo.attach(io: File.open(Rails.root.join("app/assets/images/challenges/Challenge#{n}.jpeg")), filename: "Challenge#{n}", content_type: 'image/jpeg')
   challenge.save!

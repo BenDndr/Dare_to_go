@@ -1,6 +1,6 @@
 class DelayJob < ApplicationJob
   queue_as :default
-  
+
   def perform(dare)
     puts "Job started"
     puts "I'm starting the fake job"
@@ -14,8 +14,7 @@ class DelayJob < ApplicationJob
       puts "Dare progress: #{dare.progress}"
     end
     puts "Job done"
-    
-  end
 
+  end
 
 end

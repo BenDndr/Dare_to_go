@@ -31,6 +31,9 @@ class ChallengesController < ApplicationController
         lng: user.longitude
       }
     end
+    if @challenge.created_at + @challenge.inscription*3600 > Time.now
+      @inscription = true
+    end
     @dares = Dare.where(user_id: current_user.id)
     @count = 0
 
@@ -39,7 +42,6 @@ class ChallengesController < ApplicationController
         @count += 1
       end
     end
-
   end
 
   private
