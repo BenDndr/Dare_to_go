@@ -3,7 +3,7 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
-
+@import "jquery-bar-rating/dist/themes/css-stars";
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -18,6 +18,9 @@
 @import "users/profile";
 @import "chatrooms/index";
 @import "journeys/blog";
+@import "journeys/new";
+@import "jquery-bar-rating/dist/themes/css-stars";
+@import "jquery-bar-rating/dist/themes/fontawesome-stars";
 
 body {
   font-family: 'Mukta', sans-serif;
