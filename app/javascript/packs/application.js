@@ -44,4 +44,3 @@ document.addEventListener('turbolinks:load', () => {
 
   setInterval(alerte_failed, 500);
 });
-
