@@ -13,7 +13,7 @@ class AlertesController < ApplicationController
     respond_to do |format|
         format.html
         format.json { render json: { alertes: name } }
-      end 
-  end 
-  
+      end
+  end
+
 end
