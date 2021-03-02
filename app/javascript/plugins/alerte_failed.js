@@ -5,8 +5,8 @@ const alerte_failed = () => {
       // console.log(data.alertes);
       if (data.alertes != null) {
         swal({
-          title: "A nice alert",
-          text: `${data.alertes} failed`,
+          title: "Time's up!",
+          text: `${data.alertes} is over. Don't worry, next time, you will make it!`,
           icon: "error"
         });
       };
