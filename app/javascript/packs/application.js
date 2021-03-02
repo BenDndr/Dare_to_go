@@ -28,6 +28,8 @@ import { initChatroomCable } from '../channels/chatroom_channel.js';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { auto_close } from './auto_close';
+import { initSweetalert } from '../plugins/init_sweetalert';
+import { alerte_failed } from '../plugins/alerte_failed';
 import { success } from './success';
 
 // Internal imports, e.g:
@@ -39,9 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
-  // const dare_Complete = document.querySelector(".dare-success");
-  // dare_Complete.addEventListener("click", (event) => {
-    success();
-  // });
+
+  setInterval(alerte_failed, 500);
 });
 

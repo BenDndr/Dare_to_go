@@ -19,7 +19,7 @@ class JourneysController < ApplicationController
     if @journey.save
       redirect_to my_dares_path(current_user)
     else
-      render new
+      render :new
     end
   end
 

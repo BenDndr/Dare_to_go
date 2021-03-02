@@ -36,8 +36,12 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 # gem 'csv'
 # gem 'open-uri'
+
 
 
 group :development, :test do  gem 'pry-byebug'
@@ -66,4 +70,5 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data'

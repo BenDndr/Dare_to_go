@@ -5,6 +5,7 @@ class DaresController < ApplicationController
     @dares_attendees = Dare.where(id: params[:id])
     @attendees = @dares_attendees.map { |dare|  User.find(dare.user_id) }
     # authorize @dare
+    
     @challenge = Challenge.find(@dare.challenge.id)
     # @message = Message.new
     # @messages = Message.where(dare_id: @dare.id)
@@ -43,7 +44,6 @@ class DaresController < ApplicationController
   end
   #
   def new
-
     @challenge = Challenge.find(params[:challenge_id])
     @user = current_user
     @dare = Dare.new
@@ -56,6 +56,7 @@ class DaresController < ApplicationController
   end
 
   def create
+    
     @dare = Dare.new
     # authorize @dare
     @challenge = Challenge.find(params[:challenge_id])
@@ -65,6 +66,7 @@ class DaresController < ApplicationController
     if
       @dare.save
       @chatroom.save
+      DelayJob.set(wait: 10.second).perform_later(@dare)
       redirect_to challenge_dare_path(@dare.challenge, @dare)
     else
       render :new

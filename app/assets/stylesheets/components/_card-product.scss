@@ -119,7 +119,7 @@
 	margin-left: 0.5em;
 	color: gold;
 	width: 50%;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 
@@ -223,7 +223,11 @@
     left: 0;
     top: 0;
 }
-
+.information {
+  p {
+    font-size: 16px;
+  }
+}
 .info h3 {text-align: center}
 .product-image:hover .info{transform: translateX(0);}
 
