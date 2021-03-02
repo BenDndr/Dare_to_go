@@ -8,6 +8,7 @@ class DaresController < ApplicationController
     @deadline = @dare.created_at + @challenge.delay*86400
     @chatroom = Chatroom.find_by(challenge_id: @challenge.id)
     @users = User.where(id: current_user.id)
+    authorize @dare
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -20,20 +21,21 @@ class DaresController < ApplicationController
     @dare.progress = 1
     # authorize @dare
     @dare.save
+    authorize @dare
     redirect_to challenge_dare_path(@dare.challenge, @dare)
-
   end
 
   def refuse
     @dare.progress = 2
     # authorize @dare
     @dare.save
+    authorize @dare
     redirect_to challenge_dare_path(@dare.challenge, @dare)
   end
 
 
   def index
-    @dares = Dare.where(user_id: current_user)
+    @dares = policy_scope(Dare).where(user_id: current_user)
     @dares = @dares.where(progress: 1)
   end
 
@@ -41,6 +43,7 @@ class DaresController < ApplicationController
     @challenge = Challenge.find(params[:challenge_id])
     @user = current_user
     @dare = Dare.new
+    authorize @dare
     respond_to do |format|
       format.html
       format.js
@@ -48,13 +51,13 @@ class DaresController < ApplicationController
   end
 
   def create
-
     @dare = Dare.new
     # authorize @dare
     @challenge = Challenge.find(params[:challenge_id])
     @chatroom = Chatroom.new(name: @challenge.name, challenge_id: @challenge.id)
     @dare.challenge = @challenge
     @dare.user = current_user
+    authorize @dare
     if
       @dare.save
       @chatroom.save
