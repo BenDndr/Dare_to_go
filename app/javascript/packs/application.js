@@ -39,4 +39,9 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
+  // const dare_Complete = document.querySelector(".dare-success");
+  // dare_Complete.addEventListener("click", (event) => {
+    success();
+  // });
 });
+
