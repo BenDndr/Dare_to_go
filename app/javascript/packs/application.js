@@ -41,6 +41,12 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
-  
-  setInterval(alerte_failed, 500);
+  initSweetalert('#sweet-alert-demo', {
+    title: "Congratulations!",
+    text: "You achieved this challenge!",
+    // customClass: "congrat"
+    button: "Thanks",
+    className: "congrat-alert"
+  });
+  setInterval(alerte_failed, 1000);
 });

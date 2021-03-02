@@ -21,8 +21,8 @@
             <div class="btn-box">
               <%= link_to "Validate your dare",
                             accept_challenge_dare_path(@challenge, @dare),
-                            method: :patch,
-                            data: { confirm: "Are you sure?" }, class: "btn-main" %>
+                            method: :patch, class: "btn-main", id:"sweet-alert-demo" %>
+                            
             </div>
             <div class="btn-box">
               <%= link_to "Want to give-up ?",
