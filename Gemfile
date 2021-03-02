@@ -36,6 +36,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
+gem 'dotenv-rails', groups: [:development, :test]
 # gem 'csv'
 # gem 'open-uri'
 
