@@ -30,6 +30,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { auto_close } from './auto_close';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { alerte_failed } from '../plugins/alerte_failed';
+import { initStarRating } from '../plugins/init_star_rating';
 import { success } from './success';
 
 // Internal imports, e.g:
@@ -41,6 +42,8 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
+
+  initStarRating();
 
   setInterval(alerte_failed, 500);
 });

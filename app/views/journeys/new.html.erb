@@ -10,7 +10,9 @@
 <%= simple_form_for [@challenge, @dare, @journey] do |f| %>
   <%= f.input :title, placeholder: 'Your title ...' %>
   <%= f.input :content, placeholder: 'Your content ...' %>
-  <%= f.input :challenge_rating, collection: 0..5, selected: 5 %>
+  <div class="rating-challenge">
+    <%= f.input :challenge_rating, collection: (1..5).to_a, label: "Rate your experience" %>
+  </div>
   <div class="btn-box">
     <%= f.input :public, input_html: { class: 'toggle' }  %>
   </div>
