@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initSweetalert('#validation-dare', {
     title: "Congratulations!",
     text: "You achieved this challenge!",
-    button: "thanks",
+    button: "Thanks",
     className: "congrat-alert",
   });
   setInterval(alerte_failed, 1000);
