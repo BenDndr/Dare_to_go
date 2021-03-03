@@ -10,5 +10,11 @@ p {
 
 .title-bg {
   height: 150px;
-  
+
+}
+#map {
+  margin: 0;
+}
+.mapboxgl-canvas {
+  width: 98%;
 }
