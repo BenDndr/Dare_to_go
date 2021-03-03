@@ -22,7 +22,7 @@
     </div>
   </div>
 </div>
-<div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 400, crop: :fill %>')">
+<div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, width: 400, crop: :fill %>')">
 <h1 class="text-white" ><b><%= @challenge.name.capitalize %></b></h1>
 </div>
 <p class="text-justify"> <%= @challenge.content %> </p>
