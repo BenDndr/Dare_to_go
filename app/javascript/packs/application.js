@@ -42,8 +42,13 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
-
   initStarRating();
-
-  setInterval(alerte_failed, 3600000);
+  initSweetalert('#validation-dare', {
+    title: "Congratulations!",
+    text: "You achieved this challenge!",
+    button: "thanks",
+    className: "congrat-alert",
+  });
+  
+  setInterval(alerte_failed, 1000);
 });

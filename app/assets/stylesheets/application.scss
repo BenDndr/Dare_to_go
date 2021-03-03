@@ -31,3 +31,34 @@ body {
 h1 {
   font-family: 'Mukta', sans-serif;
 }
+
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.281);
+}
+
+.congrat-alert{
+  background-image: url("congrat.gif");
+  
+  .swal-title {
+  color: #ffffff;
+  }
+  .swal-text {
+    color: #ffffff;
+  }
+  button{
+  color: white;
+  background-color: $main-yellow;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 0;
+  &:hover {
+    text-decoration: none;
+    color: black;
+    background-color: $main-yellow;
+  }
+  }
+  .swal-footer {
+  display: flex;
+  justify-content: center;
+}
+}

@@ -21,8 +21,13 @@ class DaresController < ApplicationController
     @dare.progress = 1
     # authorize @dare
     @dare.save
+<<<<<<< HEAD
+    # redirect_to challenge_dare_path(@dare.challenge, @dare)
+
+=======
     authorize @dare
     redirect_to challenge_dare_path(@dare.challenge, @dare)
+>>>>>>> master
   end
 
   def refuse
