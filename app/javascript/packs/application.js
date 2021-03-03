@@ -49,6 +49,6 @@ document.addEventListener('turbolinks:load', () => {
     button: "thanks",
     className: "congrat-alert",
   });
-  
-  setInterval(alerte_failed, 1000);
+
+  setInterval(alerte_failed, 36000);
 });
