@@ -42,13 +42,13 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
-  initStarRating();
+  
   initSweetalert('#validation-dare', {
     title: "Congratulations!",
     text: "You achieved this challenge!",
-    button: "thanks",
+    button: "Thanks",
     className: "congrat-alert",
   });
-
+  initStarRating();
   setInterval(alerte_failed, 36000);
 });
