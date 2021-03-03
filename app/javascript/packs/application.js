@@ -45,6 +45,6 @@ document.addEventListener('turbolinks:load', () => {
 
   initStarRating();
 
-  setInterval(alerte_failed, 500);
+  setInterval(alerte_failed, 3600000);
 });
 
