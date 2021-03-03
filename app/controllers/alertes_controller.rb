@@ -2,7 +2,6 @@ class AlertesController < ApplicationController
   def index
     @dares = current_user.dares.where(progress: "failed", display_alerte: "unshow")
     # .map{|dare| dare.challenge.name}
-    authorize @dares
     if @dares.first
       @dare = @dares.first
       @dare.display_alerte = "fail"

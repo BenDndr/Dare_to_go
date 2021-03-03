@@ -61,7 +61,7 @@ class DaresController < ApplicationController
     if
       @dare.save
       @chatroom.save
-      DelayJob.set(wait: 10.second).perform_later(@dare)
+      DelayJob.set(wait: 1.hour).perform_later(@dare)
       redirect_to challenge_dare_path(@dare.challenge, @dare)
     else
       render :new
