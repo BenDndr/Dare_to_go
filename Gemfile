@@ -23,6 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "omniauth", "~> 1.9.1"
 gem 'omniauth-facebook'
+gem 'pundit'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -36,6 +37,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
+# gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 

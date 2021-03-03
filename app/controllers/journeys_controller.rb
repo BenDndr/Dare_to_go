@@ -1,13 +1,14 @@
 class JourneysController < ApplicationController
 
   def index
-    @journeys = Journey.where(public: true)
+    @journeys = policy_scope(Journey).where(public: true)
   end
 
   def new
     @challenge = Challenge.find(params[:challenge_id])
     @dare = Dare.find(params[:dare_id])
     @journey = Journey.new
+    authorize @journey
   end
 
   def create
@@ -16,6 +17,7 @@ class JourneysController < ApplicationController
     @dare = Dare.find(params[:dare_id])
     @journey.user = current_user
     @journey.dare = @dare
+    authorize @journey
     if @journey.save
       redirect_to my_dares_path(current_user)
     else
@@ -25,6 +27,7 @@ class JourneysController < ApplicationController
 
   def show
     @journey = Journey.find(params[:id])
+    authorize @journey
   end
 
   private

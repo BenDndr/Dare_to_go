@@ -2,7 +2,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenge_sample = []
-    @challenges = Challenge.where(category: params[:category])
+    @challenges = policy_scope(Challenge).where(category: params[:category])
     3.times do
       @challenge_sample << @challenges.sample
     end
@@ -31,6 +31,10 @@ class ChallengesController < ApplicationController
         lng: user.longitude
       }
     end
+    authorize @challenge
+    if @challenge.created_at + @challenge.inscription*3600 > Time.now
+      @inscription = true
+    end
     @dares = Dare.where(user_id: current_user.id)
     @count = 0
 
@@ -39,7 +43,6 @@ class ChallengesController < ApplicationController
         @count += 1
       end
     end
-
   end
 
   private

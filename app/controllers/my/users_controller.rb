@@ -5,6 +5,7 @@ class My::UsersController < ApplicationController
     @dares_complete = @dares.where(progress: "validated")
     @dares_in_progress = @dares.where(progress: "pending")
     @journeys = Journey.where(user_id: params[:id])
+    authorize [:my, @user]
   end
 
 end
