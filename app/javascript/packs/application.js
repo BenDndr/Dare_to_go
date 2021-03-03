@@ -41,12 +41,12 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
-  initSweetalert('#sweet-alert-demo', {
+  initSweetalert('#validation-dare', {
     title: "Congratulations!",
     text: "You achieved this challenge!",
-    // customClass: "congrat"
-    button: "Thanks",
-    className: "congrat-alert"
+    button: "thanks",
+    className: "congrat-alert",
   });
+  
   setInterval(alerte_failed, 1000);
 });

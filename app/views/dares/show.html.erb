@@ -4,7 +4,6 @@
     <div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, height: 500, crop: :fill %>')">
       <h1 class="text-white"><b><%= @dare.challenge.name.capitalize %></b></h1>
     </div>
-
     <h2 class="text-center">Your dare:</h2>
     <p><strong>Review your tasks:</strong></p>
     <p><%= @challenge.content  %></p>
@@ -18,10 +17,10 @@
         <div class="link-accept-refuse d-flex flex-column dare-info p-1">
           <% if @dare.user_id == current_user.id %>
           <div class="inline">
-            <div class="btn-box">
+            <div class="btn-box" id="validation-dare" data-challenge="<%= @challenge.id %>" data-dare="<%= @dare.id %>">
               <%= link_to "Validate your dare",
                             accept_challenge_dare_path(@challenge, @dare),
-                            method: :patch, class: "btn-main", id:"sweet-alert-demo" %>
+                            method: :patch, class: "btn-main" %>
                             
             </div>
             <div class="btn-box">
