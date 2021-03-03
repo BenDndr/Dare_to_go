@@ -1,4 +1,4 @@
-class DarePolicy < ApplicationPolicy
+class My::DarePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all

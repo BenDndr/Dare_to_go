@@ -1,25 +1,25 @@
 class My::JourneysController < ApplicationController
 
   def index
-    @journeys = policy_scope(Journey).where(user_id: current_user)
+    @journeys = policy_scope([:my, Journey]).where(user_id: current_user)
   end
 
   def edit
     @journey = Journey.find(params[:id])
-    authorize @journey
+    authorize [:my, @journey]
   end
 
   def update
     @journey = Journey.find(params[:id])
     @journey.update(journey_params)
-    authorize @journey
+    authorize [:my, @journey]
     redirect_to my_journeys_path
     end
 
   def destroy
     @journey = Journey.find(params[:id])
     @journey.destroy
-    authorize @journey
+    authorize [:my, @journey]
     redirect_to my_journeys_path
   end
 
