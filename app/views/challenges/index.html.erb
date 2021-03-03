@@ -18,7 +18,7 @@
         <p class="information">"<%= challenge.content.truncate(80)... %>."</p>
       </div>
       <div class="product-image">
-        <%= cl_image_tag challenge.photo.key, width: 200, alt: "challenge friends"%>
+        <%= cl_image_tag challenge.photo.key, width: 200, crop: :fill, alt: "challenge friends"%>
       <div class="info">
         <h3>Details</h3>
         <ul>
