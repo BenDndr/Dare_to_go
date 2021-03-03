@@ -16,6 +16,7 @@
   border-radius: 8px;
   padding: 8px 16px;
   border: 0;
+  text-align: center;
   &:hover {
     text-decoration: none;
     color: white;
@@ -43,4 +44,9 @@
 
 .bg-blue {
   background-color: $main-blue;
+}
+
+.btn-form {
+  display: flex;
+  flex-direction: column;
 }

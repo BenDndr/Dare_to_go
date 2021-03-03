@@ -30,15 +30,6 @@
 
 <% if @challenge.solo? || @challenge.friend? %>
   <div>
-    <% if @attendees.count > 0 %>
-      <span>Already <%= @attendees.count  %> attendees : </span>
-      <% @attendees.each do |attendee| %>
-        <span><b><%= attendee.username %></b> </span>
-      <% end %>
-      <p>Why not joining them ? It will be fun !!</p>
-    <% else %>
-      <p>Be the first attendee and show the others the way !</p>
-    <% end %>
     <div class="btn-box">
       <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
         Go!
@@ -48,6 +39,15 @@
   <% end %>
 
 <% if @challenge.grouped? && @inscription %>
+  <% if @attendees.count > 0 %>
+      <span>Already <%= @attendees.count  %> attendees : </span>
+      <% @attendees.each do |attendee| %>
+        <span><b><%= attendee.username %></b> </span>
+      <% end %>
+      <p>Why not joining them ? It will be fun !!</p>
+    <% else %>
+      <p>Be the first attendee and show the others the way !</p>
+    <% end %>
   <div class="btn-box">
     <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
       Go!

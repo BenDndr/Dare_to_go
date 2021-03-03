@@ -5,7 +5,7 @@ class DaresController < ApplicationController
     @dares_attendees = Dare.where(id: params[:id])
     @attendees = @dares_attendees.map { |dare|  User.find(dare.user_id) }
     @challenge = Challenge.find(@dare.challenge.id)
-    @deadline = @dare.created_at + @challenge.delay*86400
+    @deadline = @dare.created_at + (@challenge.delay.to_i * 3600)
     @chatroom = Chatroom.find_by(challenge_id: @challenge.id)
     @users = User.where(id: current_user.id)
     authorize @dare

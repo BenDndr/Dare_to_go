@@ -32,6 +32,7 @@ class ChallengesController < ApplicationController
       }
     end
     authorize @challenge
+    @inscription = false
     if @challenge.created_at + @challenge.inscription*3600 > Time.now
       @inscription = true
     end

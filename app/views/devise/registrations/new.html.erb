@@ -24,12 +24,13 @@
 
 
     </div>
+    <div class="btn-form">
+      <div class="btn-form">
+        <%= f.button :submit, "Sign up", class: "btn-main" %>
+      <br>
+        <%= render "devise/shared/links" %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn-main" %>
-    <div>
-      <%= render "devise/shared/links" %>
     </div>
-    </div>
+  </div>
   <% end %>
 </div>

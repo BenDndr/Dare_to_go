@@ -31,7 +31,9 @@
                             data: { confirm: "Are you sure?" }, class: "btn-white" %>
             </div>
           </div>
-          <p class="p-1"  >You have until <b><em><%= @deadline.strftime("%d %m %Y") %> <%= @deadline.strftime("at %I:%M %p") %></em></b>  to complete it, after, it will be too late ! Go Go Go, you can do it !</p>
+          <p class="p-1"  >
+            You have until<b><em><%= @deadline.strftime("%d %m %Y") %> <%= @deadline.strftime("at %I:%M %p") %></em></b> to complete it, after, it will be too late ! Go Go Go, you can do it !
+          </p>
         </div>
       <% end %>
       <div>
