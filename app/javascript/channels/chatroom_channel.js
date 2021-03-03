@@ -6,13 +6,16 @@ const initChatroomCable = () => {
     const id = messagesContainer.dataset.chatroomId;
       consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        console.log(data)
-        const senderId = data.sender_id;
-        const messageId = data.message_id;
+        // console.log(data)
+        // const senderId = data.sender_id;
+        // const messageId = data.message_id;
+        // console.log(data.content)
         messagesContainer.insertAdjacentHTML('beforeend', data.content);
         // if (senderId == current_user) {
         // const mess = document.getElementById('message-${messageId}')
         // mess.classList.add("chat-bubble-user")
+        // } else {
+        // mess.classList.add("chat-bubble")
         // }
       },
     });

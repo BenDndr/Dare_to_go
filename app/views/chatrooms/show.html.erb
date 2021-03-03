@@ -1,5 +1,5 @@
 <h2 class="text-center">#<%= @chatroom.challenge.name.capitalize %></h2>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-sender-id="<%= current_user.id %>">
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
