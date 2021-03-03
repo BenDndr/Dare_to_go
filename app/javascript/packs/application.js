@@ -42,6 +42,9 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initMapbox();
   auto_close();
+
   initStarRating();
+
   setInterval(alerte_failed, 500);
 });
+
