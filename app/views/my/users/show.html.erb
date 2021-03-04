@@ -40,7 +40,7 @@
   </div>
   <% @journeys.last(5).each do |journey| %>
     <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
-      <div class="blog-journey" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path journey.dare.challenge.photo.key, height: 150, crop: :fill %>')">
+      <div class="blog-journey" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path journey.dare.challenge.photo.key, height: 500, crop: :fill %>')">
         <h4 class="text-center text-white"><strong><%= journey.title %></strong></h4>
         <p class="text-center text-white"><strong><%= journey.dare.challenge.name %></strong></p>
       </div>
