@@ -9,6 +9,10 @@
   <%= link_to challenge_path(challenge) do %>
     <div id="card-container">
       <div class="product-details">
+        <% if Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).count > 0 %>
+<b><p class="note"><%= Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).sum(:challenge_rating) /  Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).count %>/5</p></b>
+<% end %>
+
         <div class="w-100"><h2><%= challenge.name.capitalize %>.</h2></div>
         Xp:<span class="hint-star star">
         <% challenge.difficulty.times do %>
