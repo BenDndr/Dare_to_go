@@ -2,7 +2,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenge_sample = []
-    @challenges = policy_scope(Challenge).where(category: params[:category])
+    @challenges = policy_scope(Challenge).where(category: params[:category]).includes([:photo_attachment])
     3.times do
       @challenge_sample << @challenges.sample
     end
