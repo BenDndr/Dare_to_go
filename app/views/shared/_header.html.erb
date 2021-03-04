@@ -17,6 +17,9 @@
         <%= link_to "My dares", my_dares_path(current_user), class: "dropdown-item" %>
         <%= link_to "Leaderboard", users_path, class: "dropdown-item" %>
         <%= link_to "Journey diary", journeys_path, class: "dropdown-item" %>
+        <% if current_user.admin == true %>
+          <%= link_to "Admin", rails_admin.dashboard_path, class: "dropdown-item" %>
+        <% end %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
   <% else %>
