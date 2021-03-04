@@ -1,6 +1,7 @@
 class Challenge < ApplicationRecord
   has_many :chatrooms, dependent: :destroy
   has_many :dares, dependent: :destroy
+  has_many :journeys, :through => :dare
   enum category: [ :solo, :friend, :grouped]
   has_one_attached :photo
 
@@ -10,5 +11,5 @@ class Challenge < ApplicationRecord
   validates :content, presence: true
   validates :difficulty, presence: true
   validates :xp, presence: true
-  validates :delay, presence: true
+  validates :delay, presence: true  
 end

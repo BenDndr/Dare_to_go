@@ -10,6 +10,9 @@
     <div id="card-container">
       <div class="product-details">
         <div class="w-100"><h2><%= challenge.name.capitalize %>.</h2></div>
+        <% if Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).count > 0 %>
+        <b><p class="note"><%= Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).sum(:challenge_rating) /  Journey.where(dare_id: Dare.where(challenge_id: challenge.id)).count %>/5</p></b>
+        <% end %>
         Xp:<span class="hint-star star">
         <% challenge.difficulty.times do %>
           <i class="fa fa-star" aria-hidden="true"></i>
