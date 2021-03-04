@@ -3,7 +3,7 @@
     <%= image_tag "Logo-natif.v2.png", alt: "logo", class: "logo" %>
     <p>Overcome your shyness</p>
     <% if user_signed_in? %>
-      <%= link_to "New Challenge", categorys_path, class: "btn-home-banner mx-5" %>
+      <%= link_to "New Challenge", categorys_path, class: "btn-home-banner mx-5 text-decoration-none" %>
     <% else %>
       <%= link_to "Sign up",new_user_session_path, class: "btn-home-banner mx-5" %>
     <% end %>
