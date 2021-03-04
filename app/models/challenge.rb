@@ -1,7 +1,7 @@
 class Challenge < ApplicationRecord
   has_many :chatrooms, dependent: :destroy
   has_many :dares, dependent: :destroy
-  has_many :journeys, :through => :dare
+  has_many :journeys, through: :dares
   enum category: [ :solo, :friend, :grouped]
   has_one_attached :photo
 
