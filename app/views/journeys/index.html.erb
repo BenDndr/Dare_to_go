@@ -7,13 +7,13 @@
       <div class="notification-content">
         <h4><%= journey.title %></h4>
         <p><small>par <%= journey.user.username %> le <%= journey.created_at.to_s.first(10) %> </small></p>
-        <p class="c1">Challenge: <%= link_to journey.dare.challenge.name, challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) %></p>
+        <p class="c1">Challenge: <%= link_to journey.dare.challenge.name, challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey), class:"text-decoration-none" %></p>
         <% if journey.content.size < 30 %>
           <p><%= journey.content %></p>
         <% else %>
           <p><%= journey.content.truncate(60) %></p>
         <% end %>
-        <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
+        <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey), class:"text-decoration-none" do %>
           <p class="text-center"><strong>Read more</strong></p>
         <% end %>
       </div>
